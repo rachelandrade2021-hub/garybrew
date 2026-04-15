@@ -1,1 +1,8 @@
-#ifndef GARY_H\n#define GARY_H\n\nvoid garySplash();\nvoid garyMenu();\nvoid garyShowPage();\n\n#endif // GARY_H\n
+#ifndef GARY_H
+#define GARY_H
+
+void garySplash();
+void garyMenu();
+void garyShowPage();
+
+#endif // GARY_H
