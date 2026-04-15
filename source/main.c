@@ -1,21 +1,13 @@
 #include <3ds.h>
+#include <stdio.h>
+#include "gary.h"
 
 int main(int argc, char *argv[]) {
     gfxInitDefault();
+    consoleInit(GFX_TOP, NULL);
     
-    // Your application logic here
-    
-    while (aptMainLoop()) {
-        hidScanInput();
-        u32 kDown = hidKeysDown();
-        
-        if (kDown & KEY_START)
-            break;
-        
-        gfxFlushBuffers();
-        gfxSwapBuffers();
-        gspWaitForVBlank();
-    }
+    garySplash();
+    garyMenu();
     
     gfxExit();
     return 0;
