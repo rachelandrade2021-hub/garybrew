@@ -1,0 +1,1 @@
+#ifndef GARY_H\n#define GARY_H\n\nvoid garySplash();\nvoid garyMenu();\nvoid garyShowPage();\n\n#endif // GARY_H\n
