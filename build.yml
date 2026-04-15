@@ -1,0 +1,25 @@
+name: Build GaryBrew 3DS
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: devkitpro/devkitarm:latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Build
+      run: make
+
+    - name: Upload .3dsx
+      uses: actions/upload-artifact@v4
+      with:
+        name: GaryBrew3DS
+        path: GaryBrew3DS.3dsx
