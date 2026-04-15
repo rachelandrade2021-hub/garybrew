@@ -1,23 +1,25 @@
-name: C/C++ CI
+name: Build GaryBrew 3DS
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
+    container:
+      image: devkitpro/devkitarm:latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: configure
-      run: ./configure
-    - name: make
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Build
       run: make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+
+    - name: Upload .3dsx
+      uses: actions/upload-artifact@v4
+      with:
+        name: GaryBrew3DS
+        path: GaryBrew3DS.3dsx
